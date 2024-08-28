@@ -11,6 +11,7 @@ const swaggerDocument = require('./ApiDocs/swagger-output.json');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
+
 app.use(express.json()); // For parsing application/json
 app.use(express.urlencoded({ extended: true }));
 app.use(express.text())
