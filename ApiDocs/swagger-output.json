@@ -1,0 +1,81 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Backend Compiler API",
+    "description": "API for compiling JavaScript code",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/code/compile": {
+      "post": {
+        "tags": [
+          "Code"
+        ],
+        "summary": "Compile JavaScript code",
+        "description": "Compiles the provided JavaScript code and returns the result.",
+        "consumes": [
+          "text/plain"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "code",
+            "description": "The JavaScript code to compile",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "console.log('Hello, World!');"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Compilation successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "output": {
+                  "type": "string",
+                  "example": "Hello, World!"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid JavaScript code provided",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "Syntax error in provided code"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "An unexpected error occurred"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {}
+}
