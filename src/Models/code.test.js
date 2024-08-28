@@ -4,7 +4,7 @@ const { CodeExecution, executeCode } = require('./code');
 describe('CodeExecution Model and executeCode Function', () => {
 
     beforeAll(async () => {
-        const mongoUri = 'mongodb://localhost:27017/backend_compiler_api_test'; // you can change according to ur uri
+        const mongoUri = process.env.MONGODB_URI; // you can change according to ur uri
         await mongoose.connect(mongoUri); // No need for deprecated options
     });
 

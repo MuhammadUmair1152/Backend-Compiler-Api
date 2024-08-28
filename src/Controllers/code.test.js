@@ -10,7 +10,7 @@ app.post('/api/code/compile', compileCode);
 
 describe('POST /api/code/compile', () => {
     beforeAll(async () => {
-        await mongoose.connect('mongodb://localhost:27017/test');
+        await mongoose.connect(process.env.MONGODB_URI);
     });
 
     afterEach(async () => {
